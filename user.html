@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="body">
+	<div class="container">
+		<h1 style="font-family: cursive;font-size: 50px;color: yellow;">USER</h1>
+
+		<form action="user.html " style="border:5px solid #FF36AF; padding-top: 30px;">
+
+		<b>ID</b><input type="text" name="ID" placeholder="ID" id="id" class="textfield">
+		<p><b>Name</b><input class="textfield" type="text" placeholder="Enter name" name="nameText" id="nameText">
+
+
+		 <p><b>Email</b><input class="textfield" type="email" placeholder="Enter Email" name="email" id="emailText" >
+
+
+		 	<p><b>Password</b><input class="textfield" type="password" placeholder="Enter Password" name="psw" id="passText">
+		 		<p><u><b>BIO</b></u></p><input type="text" name="bio" placeholder="bio" id="bio" class="bio">
+		 		<p><b>Gender</b><input type="radio" name="gender">Male
+                            <input type="radio" name="gender">Female
+                            <input type="radio" name="gender">Other    
+                   <p><b>Profile Picture</b></p> <input type="image" name="dp" id="dp" class="dp">      
+		 </form>		
+		</div>
+		    <script type="text/javascript" src="js/jquery.js"></script>
+		    <script type="text/javascript">
+	    	$(document).ready(function(){
+	    		$('form').submit(function(){
+	    			var id=$('#id').val();
+	    			var name=$('#nameText').val();
+	    			var email=$('#emailText').val();
+	    			var password=$('#password').val();
+	    			   $(".error").remove();
+	    		if(id.length<1){
+	    			$('#id').after('<span class="error">id is required</span>');}
+	    		if(name.length<1){
+	    			$('#nameText').after('<span class=="error">Name must be provided</span>');
+	    		}
+	    		if(email.length<1){
+	    			$('#emailText').after('<span class="error">email must be given</span> ');
+	    		}
+	    		else{
+	    			var emailFormat=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	    			var validEmail=emailFormat.test(email);
+	    			if (!validEmail) {
+	    				$('#emailText').after('<span class=="error">enter a valid email ID</span>');
+	    			}
+	    			if (password.length<8) {
+	    				$('#passText').after('<span class="error">password should contain atleast 8 chracters</span>');
+	    			}
+	    		}
+
+
+	    		});
+
+	    	});
+
+
+
+		    </script>
+</body>
+</html>

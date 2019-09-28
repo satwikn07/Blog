@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form id="f1" action="js1.html">
+		<input type="text" name="text" id="fname">
+		<span style="color: red;display: none;" id="err">Name is empty</span>
+		<input type="submit" id="b1" value="click">
+		<button id="b2">click me!</button>
+		
+	</form>	
+	
+
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+		//it will be caled when the fpage will be loaded
+			$(document).ready(function(){
+				$('#b2').click(function(){
+					alert('hiii');
+				})
+
+						//it will be called when the form is subbmitted
+							$('form').submit(function(){
+									
+									//name empty check
+									if ($('#fname').val()=='') {
+										$('#err').show();
+										$('#fname').focus();
+										//$('#fname').addClass('error');
+										return false;
+									}
+									return true;
+							});
+												
+				});
+
+
+		</script>
+		<script type="text/javascript">
+	/*	$(document).ready(function(){
+
+				//name empty check
+				$('#b1').click(function(){
+					alert('hiii');
+				
+				});
+				$('#f1').submit(function(){
+					var text=$('#t1').val();
+					if(text==""){
+						alert('empty');
+						return false;
+					}
+					return true;
+
+				});
+				$('#t1').keypress(function(event){
+					var text=event.which;//for ascii value
+					if(text==97)
+						return false;
+				});
+
+
+			});*/
+		</script>
+		
+</body> 
+</html> 
